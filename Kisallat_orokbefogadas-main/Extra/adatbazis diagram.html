@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendszerterv: Adatbázis Modell</title>
+    <style>
+        .uml-table {
+            border: 1px solid #000;
+            margin-bottom: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .uml-table th, .uml-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        .uml-table th {
+            background-color: #f2f2f2;
+        }
+        .uml-table caption {
+            font-weight: bold;
+            text-align: left;
+            padding: 8px;
+            background-color: #ddd;
+            border-bottom: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rendszerterv: Adatbázis Modell</h1>
+
+    <table class="uml-table">
+        <caption>felhasznalok tábla</caption>
+        <tr>
+            <th>Oszlop</th>
+            <th>Típus</th>
+            <th>Leírás</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>INT(11) AUTO_INCREMENT PRIMARY KEY</td>
+            <td>Automatikusan növekszik, elsődleges kulcs</td>
+        </tr>
+        <tr>
+            <td>full_name</td>
+            <td>VARCHAR(128) NOT NULL</td>
+            <td>Teljes név</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>VARCHAR(255) NOT NULL</td>
+            <td>Email cím</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>VARCHAR(255) NOT NULL</td>
+            <td>Jelszó (hash-elt)</td>
+        </tr>
+    </table>
+
+    <table class="uml-table">
+        <caption>animals tábla</caption>
+        <tr>
+            <th>Oszlop</th>
+            <th>Típus</th>
+            <th>Leírás</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>INT(11) AUTO_INCREMENT PRIMARY KEY</td>
+            <td>Automatikusan növekszik, elsődleges kulcs</td>
+        </tr>
+        <tr>
+            <td>animal_name</td>
+            <td>VARCHAR(100) NOT NULL</td>
+            <td>Állat neve</td>
+        </tr>
+        <tr>
+            <td>animal_age</td>
+            <td>INT(11) NOT NULL</td>
+            <td>Kor (években)</td>
+        </tr>
+        <tr>
+            <td>animal_type</td>
+            <td>ENUM('kutya', 'macska') NOT NULL</td>
+            <td>Macska vagy kutya</td>
+        </tr>
+        <tr>
+            <td>animal_gender</td>
+            <td>ENUM('hím', 'nőstény') NOT NULL</td>
+            <td>Neme (ivar)</td>
+        </tr>
+        <tr>
+            <td>animal_size</td>
+            <td>ENUM('kicsi', 'közepes', 'nagy') NOT NULL</td>
+            <td>Méret (pl. kicsi, közepes, nagy)</td>
+        </tr>
+        <tr>
+            <td>animal_breed</td>
+            <td>VARCHAR(100) DEFAULT NULL</td>
+            <td>Típus (pl. tacskó, keverék)</td>
+        </tr>
+        <tr>
+            <td>animal_description</td>
+            <td>TEXT NOT NULL</td>
+            <td>Leírás</td>
+        </tr>
+        <tr>
+            <td>animal_image</td>
+            <td>MEDIUMBLOB NOT NULL</td>
+            <td>Kép</td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+            <td>TIMESTAMP DEFAULT CURRENT_TIMESTAMP</td>
+            <td>Rögzítés dátuma</td>
+        </tr>
+    </table>
+</body>
+</html>
